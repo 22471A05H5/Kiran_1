@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { Mail, Instagram, Youtube, Linkedin } from "lucide-react";
+import { Mail, Instagram } from "lucide-react";
 
 const ContactSection = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -23,9 +23,11 @@ const ContactSection = () => {
   }, []);
 
   const socialLinks = [
-    { icon: Instagram, href: "https://instagram.com/", label: "Instagram" },
-    { icon: Youtube, href: "https://youtube.com/", label: "YouTube" },
-    { icon: Linkedin, href: "https://linkedin.com/", label: "LinkedIn" },
+    {
+      icon: Instagram,
+      href: "https://www.instagram.com/_kiran_editss_?igsh=MXkyOHZhM3NmY2R1aA==",
+      label: "Instagram",
+    },
   ];
 
 

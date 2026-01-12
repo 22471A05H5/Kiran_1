@@ -107,6 +107,16 @@ const WorkSection = () => {
           <p className="mt-4 text-muted-foreground font-body font-light">
             A collection of my best projects
           </p>
+          <div className="mt-6 flex justify-center">
+            <a
+              href="https://drive.google.com/drive/folders/1K7tksRNfNQ7MVS9h2JEUdHPgUeyurRjB"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center rounded-full border border-border/50 bg-background/40 px-5 py-2 text-xs font-heading uppercase tracking-[0.2em] text-muted-foreground backdrop-blur-md transition-all duration-300 hover:bg-background/60 hover:text-foreground"
+            >
+              View All Edits
+            </a>
+          </div>
         </div>
 
         {/* Showreel */}
