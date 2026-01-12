@@ -6,27 +6,24 @@ const experiences = [
     description:
       "Working with brands, creators, and agencies on diverse projects ranging from social media content to documentary films.",
     highlights: [
-      "Edited 30+ brand campaigns for e-commerce and lifestyle brands",
-      "Created viral content with 10M+ combined views",
-      "Collaborated with top YouTube creators",
+      "Edited 30+ brand campaigns for lifestyle brands",
+      "Collaborated with YouTube creators",
     ],
   },
   {
     title: "Video Editor at Creative Agency",
     description:
-      "Full-time role producing commercial content, promotional videos, and social media campaigns for national clients.",
+      "Producing commercial content, promotional videos, and social media campaigns for national clients.",
     highlights: [
       "Led post-production for major product launches",
       "Developed streamlined editing workflows",
-      "Trained junior editors on professional techniques",
     ],
   },
   {
-    title: "Junior Editor & Motion Designer",
+    title: "Junior Editor",
     description:
-      "Started professional career creating motion graphics and editing content for digital marketing campaigns.",
+      "Started professional career creating and editing content for digital marketing campaigns.",
     highlights: [
-      "Created 100+ animated social media assets",
       "Learned color grading and sound design",
       "Built foundation in storytelling techniques",
     ],

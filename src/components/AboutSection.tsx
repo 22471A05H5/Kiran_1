@@ -49,7 +49,7 @@ const AboutSection = () => {
         >
           <p className="text-xl md:text-2xl text-foreground/90 font-heading font-light leading-relaxed text-center">
             I'm a video editor with a passion for transforming raw footage into
-            compelling visual stories. With 6+ months of hands-on experience across brands,
+            compelling visual stories. With 8+ months of hands-on experience across brands,
             creators, and agencies, I bring a cinematic eye and meticulous
             attention to every project.
           </p>
@@ -89,7 +89,7 @@ const AboutSection = () => {
           </div>
           <div>
             <p className="font-heading text-4xl md:text-5xl text-foreground text-glow">
-              6+
+              8+
             </p>
             <p className="mt-2 text-sm text-muted-foreground font-heading uppercase tracking-wider">
               Months

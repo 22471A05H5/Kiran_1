@@ -79,6 +79,10 @@ const WorkSection = () => {
       title: "Glorify Instant",
       src: import.meta.env.VITE_VIDEO_GLORIFY as string | undefined,
     },
+    {
+      title: "Boutique",
+      src: import.meta.env.VITE_VIDEO_BOUTIQUE as string | undefined,
+    },
   ].filter((x) => Boolean(x.src)) as Array<{ title: string; src: string }>;
 
   const toggleAudio = (index: number) => {

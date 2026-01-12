@@ -1,5 +1,5 @@
 import { ChevronDown, Play } from "lucide-react";
-import profileImage from "@/assets/profile-hero.jpg";
+import profileImage from "@/assets/pic.jpeg";
 
 const HeroSection = () => {
   const scrollToWork = () => {
