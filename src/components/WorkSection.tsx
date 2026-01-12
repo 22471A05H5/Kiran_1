@@ -112,9 +112,10 @@ const WorkSection = () => {
               href="https://drive.google.com/drive/folders/1K7tksRNfNQ7MVS9h2JEUdHPgUeyurRjB"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-full border border-border/50 bg-background/40 px-5 py-2 text-xs font-heading uppercase tracking-[0.2em] text-muted-foreground backdrop-blur-md transition-all duration-300 hover:bg-background/60 hover:text-foreground"
+              className="group relative inline-flex items-center justify-center rounded-full bg-foreground px-6 py-2.5 text-xs font-heading font-semibold uppercase tracking-[0.22em] text-background shadow-[0_10px_30px_rgba(0,0,0,0.18)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_18px_50px_rgba(0,0,0,0.26)]"
             >
               View All Edits
+              <span className="pointer-events-none absolute inset-0 rounded-full bg-gradient-to-r from-muted/0 via-background/15 to-muted/0 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
             </a>
           </div>
         </div>
