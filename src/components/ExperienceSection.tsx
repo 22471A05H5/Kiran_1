@@ -59,7 +59,7 @@ const ExperienceSection = () => {
       <div className="max-w-4xl mx-auto">
         {/* Section Header */}
         <div
-          className={`text-center mb-16 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          className={`text-center mb-10 md:mb-12 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
             }`}
         >
           <h2 className="font-heading text-4xl md:text-5xl lg:text-6xl text-foreground text-glow">
@@ -78,7 +78,7 @@ const ExperienceSection = () => {
           {experiences.map((exp, index) => (
             <div
               key={exp.title}
-              className={`relative pl-8 md:pl-0 pb-16 last:pb-0 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              className={`relative pl-8 md:pl-0 pb-10 md:pb-12 last:pb-0 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
                 }`}
               style={{ transitionDelay: `${(index + 1) * 150}ms` }}
             >

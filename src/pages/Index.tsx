@@ -13,6 +13,10 @@ const Index = () => {
       <HeroSection />
       <WorkSection />
       <ServicesSection />
+      <div aria-hidden className="relative h-10 md:h-14">
+        <div className="absolute inset-x-6 md:inset-x-12 lg:inset-x-24 top-1/2 -translate-y-1/2 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+        <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-24 bg-gradient-to-b from-background/0 via-muted/20 to-background/0 blur-2xl" />
+      </div>
       <AboutSection />
       <ExperienceSection />
       <ContactSection />

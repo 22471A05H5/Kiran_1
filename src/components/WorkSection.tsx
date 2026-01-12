@@ -5,6 +5,8 @@ import showreelPoster from "@/assets/showreel-poster.jpg";
 const WorkSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [audioIndex, setAudioIndex] = useState<number | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
+  const [activeReelIndex, setActiveReelIndex] = useState<number | null>(null);
   const sectionRef = useRef<HTMLElement>(null);
   const videoRefs = useRef<Array<HTMLVideoElement | null>>([]);
 
@@ -24,6 +26,32 @@ const WorkSection = () => {
 
     return () => observer.disconnect();
   }, []);
+
+  useEffect(() => {
+    const ua = typeof navigator !== "undefined" ? navigator.userAgent : "";
+    setIsMobile(/Mobi|Android|iPhone|iPad|iPod/i.test(ua));
+  }, []);
+
+  useEffect(() => {
+    if (activeReelIndex === null) return;
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setActiveReelIndex(null);
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [activeReelIndex]);
+
+  useEffect(() => {
+    if (activeReelIndex === null) return;
+
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = prev;
+    };
+  }, [activeReelIndex]);
 
   useEffect(() => {
     videoRefs.current.forEach((videoEl, index) => {
@@ -57,12 +85,15 @@ const WorkSection = () => {
     setAudioIndex((prev) => (prev === index ? null : index));
   };
 
+  const activeReel =
+    activeReelIndex === null ? null : showreels[activeReelIndex] ?? null;
+
   return (
     <section id="work" ref={sectionRef} className="section-padding">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div
-          className={`text-center mb-16 transition-all duration-700 ${
+          className={`text-center mb-10 md:mb-12 transition-all duration-700 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
@@ -76,7 +107,7 @@ const WorkSection = () => {
 
         {/* Showreel */}
         <div
-          className={`relative mb-20 bg-card/30 rounded-lg overflow-hidden card-glow transition-all duration-700 delay-100 ${
+          className={`relative mb-12 md:mb-14 bg-card/30 rounded-lg overflow-hidden card-glow transition-all duration-700 delay-100 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
           }`}
         >
@@ -88,26 +119,49 @@ const WorkSection = () => {
                 <div
                   key={reel.title}
                   className="group relative overflow-hidden rounded-lg border border-border/30 bg-background/40"
+                  role="button"
+                  tabIndex={0}
+                  onClick={() => {
+                    setActiveReelIndex(index);
+                    setAudioIndex(null);
+                  }}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      setActiveReelIndex(index);
+                      setAudioIndex(null);
+                    }
+                  }}
                 >
                   <video
                     ref={(el) => {
                       videoRefs.current[index] = el;
                     }}
                     className="w-full h-[420px] md:h-[520px] lg:h-[620px] object-contain bg-background"
-                    autoPlay
+                    autoPlay={!isMobile}
                     muted={!isAudioOn}
                     loop
                     playsInline
                     poster={showreelPoster}
-                    preload="metadata"
+                    preload={isMobile ? "none" : "metadata"}
+                    controls={false}
                   >
                     <source src={reel.src} type="video/mp4" />
                   </video>
 
+                  <div className="pointer-events-none absolute inset-x-0 bottom-0 p-4">
+                    <div className="pointer-events-auto inline-flex items-center rounded-full border border-border/40 bg-background/50 px-3 py-2 text-xs font-heading uppercase tracking-[0.2em] text-muted-foreground backdrop-blur-md md:opacity-0 md:group-hover:opacity-100">
+                      View
+                    </div>
+                  </div>
+
                   <div className="absolute right-4 top-4">
                     <button
                       type="button"
-                      onClick={() => toggleAudio(index)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        toggleAudio(index);
+                      }}
                       className="inline-flex items-center gap-2 rounded-full border border-border/50 bg-background/40 px-3 py-2 text-xs font-heading uppercase tracking-[0.2em] text-muted-foreground backdrop-blur-md transition-all duration-300 hover:bg-background/60 hover:text-foreground focus-visible:outline-none focus-visible:ring-0 focus-visible:ring-offset-0 md:opacity-0 md:group-hover:opacity-100"
                       aria-label={isAudioOn ? "Mute audio" : "Play audio"}
                     >
@@ -122,6 +176,45 @@ const WorkSection = () => {
             })}
           </div>
         </div>
+
+        {activeReel ? (
+          <div
+            className="fixed inset-0 z-[999] bg-black/80 backdrop-blur-sm"
+            role="dialog"
+            aria-modal="true"
+            onClick={() => setActiveReelIndex(null)}
+          >
+            <div className="absolute left-0 right-0 top-0 flex items-center justify-between p-4">
+              <div className="text-sm font-heading uppercase tracking-[0.2em] text-white/80">
+                {activeReel.title}
+              </div>
+              <button
+                type="button"
+                className="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-heading uppercase tracking-[0.2em] text-white hover:bg-white/20"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setActiveReelIndex(null);
+                }}
+              >
+                Close
+              </button>
+            </div>
+
+            <div
+              className="absolute inset-0 flex items-center justify-center px-4 py-16"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <video
+                className="h-full w-full max-w-6xl rounded-lg bg-black object-contain"
+                src={activeReel.src}
+                autoPlay
+                controls
+                playsInline
+                preload="auto"
+              />
+            </div>
+          </div>
+        ) : null}
       </div>
     </section>
   );
