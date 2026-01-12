@@ -184,7 +184,7 @@ const WorkSection = () => {
             aria-modal="true"
             onClick={() => setActiveReelIndex(null)}
           >
-            <div className="absolute left-0 right-0 top-0 flex items-center justify-between p-4">
+            <div className="absolute left-0 right-0 top-0 z-10 flex items-center justify-between p-4">
               <div className="text-sm font-heading uppercase tracking-[0.2em] text-white/80">
                 {activeReel.title}
               </div>
@@ -201,7 +201,7 @@ const WorkSection = () => {
             </div>
 
             <div
-              className="absolute inset-0 flex items-center justify-center px-4 py-16"
+              className="absolute inset-0 z-0 flex items-center justify-center px-4 py-16"
               onClick={(e) => e.stopPropagation()}
             >
               <video
