@@ -119,40 +119,35 @@ const WorkSection = () => {
                 <div
                   key={reel.title}
                   className="group relative overflow-hidden rounded-lg border border-border/30 bg-background/40"
-                  role="button"
-                  tabIndex={0}
-                  onClick={() => {
-                    setActiveReelIndex(index);
-                    setAudioIndex(null);
-                  }}
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter" || e.key === " ") {
-                      e.preventDefault();
-                      setActiveReelIndex(index);
-                      setAudioIndex(null);
-                    }
-                  }}
                 >
                   <video
                     ref={(el) => {
                       videoRefs.current[index] = el;
                     }}
                     className="w-full h-[420px] md:h-[520px] lg:h-[620px] object-contain bg-background"
-                    autoPlay={!isMobile}
+                    autoPlay
                     muted={!isAudioOn}
                     loop
                     playsInline
-                    poster={showreelPoster}
-                    preload={isMobile ? "none" : "metadata"}
+                    poster={isMobile ? undefined : showreelPoster}
+                    preload={isMobile ? "auto" : "metadata"}
                     controls={false}
                   >
                     <source src={reel.src} type="video/mp4" />
                   </video>
 
                   <div className="pointer-events-none absolute inset-x-0 bottom-0 p-4">
-                    <div className="pointer-events-auto inline-flex items-center rounded-full border border-border/40 bg-background/50 px-3 py-2 text-xs font-heading uppercase tracking-[0.2em] text-muted-foreground backdrop-blur-md md:opacity-0 md:group-hover:opacity-100">
+                    <button
+                      type="button"
+                      className="pointer-events-auto inline-flex items-center rounded-full border border-border/40 bg-background/50 px-3 py-2 text-xs font-heading uppercase tracking-[0.2em] text-muted-foreground backdrop-blur-md md:opacity-0 md:group-hover:opacity-100"
+                      onClick={() => {
+                        setActiveReelIndex(index);
+                        setAudioIndex(null);
+                      }}
+                      aria-label={`View ${reel.title} fullscreen`}
+                    >
                       View
-                    </div>
+                    </button>
                   </div>
 
                   <div className="absolute right-4 top-4">
