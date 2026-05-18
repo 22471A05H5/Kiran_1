@@ -83,6 +83,14 @@ const WorkSection = () => {
       title: "Boutique",
       src: import.meta.env.VITE_VIDEO_BOUTIQUE as string | undefined,
     },
+    {
+      title: "Chetak Vijayawada",
+      src: import.meta.env.VITE_VIDEO_CHETAK as string | undefined,
+    },
+    {
+      title: "Speed 400",
+      src: import.meta.env.VITE_VIDEO_SPEED as string | undefined,
+    },
   ].filter((x) => Boolean(x.src)) as Array<{ title: string; src: string }>;
 
   const toggleAudio = (index: number) => {
