@@ -104,7 +104,7 @@ const ContactSection = () => {
           }`}
       >
         <p className="text-xs text-foreground font-heading font-normal py-4 text-center">
-          © 2025 Sri Kiran Sai Yarramsetti. All rights reserved.
+           Sri Kiran Sai Yarramsetti. All rights reserved.
         </p>
       </div>
     </section>
