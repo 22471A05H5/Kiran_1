@@ -2,30 +2,34 @@ import { useEffect, useRef, useState } from "react";
 
 const experiences = [
   {
-    title: "Freelance Video Editor",
+    title: "Content Creator at Varun Group",
     description:
-      "Working with brands, creators, and agencies on diverse projects ranging from social media content to documentary films.",
+      "Created and managed automotive content, including motorcycle showcases, ride experiences, customer deliveries, and promotional campaigns for social media platforms.",
     highlights: [
-      "Edited 30+ brand campaigns for lifestyle brands",
-      "Collaborated with YouTube creators",
+      "Created and edited 100+ motorcycle and automotive videos",
+      "Captured cinematic riding shots and showroom content",
+      "Traveled across Andhra Pradesh and Hyderabad for on-location shoots",
+      "Worked closely with sales and marketing teams to create content that increased customer engagement and strengthened brand visibility",
     ],
   },
   {
-    title: "Video Editor at Creative Agency",
+    title: "Main Editor at Glorify",
     description:
-      "Producing commercial content, promotional videos, and social media campaigns for national clients.",
+      "Produced engaging automotive reels, promotional videos, and social media content while managing the complete post-production workflow.",
     highlights: [
-      "Led post-production for major product launches",
-      "Developed streamlined editing workflows",
+      "Specialized in high-engagement Instagram Reels",
+      "Handled color grading, transitions, and audio synchronization",
+      "Collaborated with marketing teams to meet tight deadlines",
     ],
   },
   {
-    title: "Junior Editor",
+    title: "Video Editor & Cinematographer",
     description:
-      "Started professional career creating and editing content for digital marketing campaigns.",
+      "Developed expertise in visual storytelling, cinematography, and content creation through hands-on experience across various projects.",
     highlights: [
-      "Learned color grading and sound design",
-      "Built foundation in storytelling techniques",
+      "Skilled in Adobe Premiere Pro, DaVinci Resolve, and CapCut Pro",
+      "Created promotional videos and social media content",
+      "Built strong foundations in storytelling and camera operations",
     ],
   },
 ];

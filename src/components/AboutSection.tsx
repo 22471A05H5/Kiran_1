@@ -48,10 +48,7 @@ const AboutSection = () => {
             }`}
         >
           <p className="text-xl md:text-2xl text-foreground/90 font-heading font-light leading-relaxed text-center">
-            I'm a video editor with a passion for transforming raw footage into
-            compelling visual stories. With 8+ months of hands-on experience across brands,
-            creators, and agencies, I bring a cinematic eye and meticulous
-            attention to every project.
+            I'm a creative Video Editor & Cinematographer with 1+ year of experience in video editing and hands-on expertise in cinematography. I specialize in creating engaging reels, promotional videos, and cinematic visual content through storytelling, color grading, and professional camera techniques. Passionate about transforming ideas into impactful visuals, I focus on delivering high-quality content that captures attention, drives engagement, and leaves a lasting impression.
           </p>
         </div>
 
@@ -81,7 +78,7 @@ const AboutSection = () => {
         >
           <div>
             <p className="font-heading text-4xl md:text-5xl text-foreground text-glow">
-              20+
+              100+
             </p>
             <p className="mt-2 text-sm text-muted-foreground font-heading uppercase tracking-wider">
               Projects
@@ -89,10 +86,10 @@ const AboutSection = () => {
           </div>
           <div>
             <p className="font-heading text-4xl md:text-5xl text-foreground text-glow">
-              8+
+              1+
             </p>
             <p className="mt-2 text-sm text-muted-foreground font-heading uppercase tracking-wider">
-              Months
+              Years
             </p>
           </div>
           <div>
